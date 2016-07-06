@@ -1,0 +1,23 @@
+{% extends 'newbase.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class='col-sm-3 col-sm-offset-3'>
+    <!-- <h1>
+        {{ title }}
+    </h1> -->
+
+    <form method="post" action="" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" class="btn btn-default" />
+       	<a href="http://127.0.0.1:8000/register/" input type="Register" class="btn btn-default"> Register</a></li>
+        
+    </form>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+{% block content %}
+
+<html>
+<body>
+
+{% if sell %}
+<ul>
+    {% for i in sell %}
+    <li>
+        <li><a href="{{ i.files.url }}"> <img src="{{ i.files.url }}" {{ i.files.name }} width="300" height="250" align="left"></a></li>
+    </li>
+    {% endfor %}
+
+</ul>
+    {% else %}
+    <p>No documents.</p>
+    {% endif %}
+</body>
+{% endblock %}
+</html>

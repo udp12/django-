@@ -1,0 +1,39 @@
+
+{% load crispy_forms_tags %}
+<style>
+    video{
+
+        border-bottom-left-radius: 10%;
+
+    }
+</style>
+<html>
+
+    <body>
+    <!-- List of uploaded documents -->
+    {% if documents %}
+        <ul>
+        {% for document in documents %}
+            <li><a href="{{ document.video.url }}"> <video src="{{ document.video.url }}" {{ document.video.name }} width="300" height="300" controls></video></a></li>
+            <li><a href="{{ document.audio.url }}"> <video src="{{ document.audio.url }}"  width="300" height="300" controls></video></a></li>
+
+            {% endfor %}
+        </ul>
+    {% else %}
+
+        <p>No documents.</p>
+    {% endif %}
+
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form| crispy }}</p>
+            <!--<p>{{ form.files.label_tag }} {{ form.files.help_text }}</p>-->
+            <!--<p>-->
+                <!--{{ form.files.errors }}-->
+                <!--{{ form.files }}-->
+            <!--</p>-->
+            <p><input type="submit" value="Upload" /></p>
+        </form>
+    </body>
+</html>

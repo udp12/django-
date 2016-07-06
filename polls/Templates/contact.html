@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Credentials</title>
+</head>
+<body>
+{% block content %}
+<div class="row">
+    <div class="col-xs-1 col-md-3">
+
+    <form action="/User_Login/" method="post">
+
+        {% csrf_token %}
+        {{form|crispy}}
+    <input type="submit" value="submit" class="btn btn-primary btn-success">
+        <!--<input type="Create Account" value="Create Account" class="btn btn-primary btn-success">-->
+        <a href="http://127.0.0.1:8000/Entry_one/" class="btn btn-primary btn-success" role="button">Create Account</a>
+
+</form>
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>
